@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwr7MRLSv3EuQf_qVjInYGcuU_oLdmVUjKUfKrZaS7FF1glk-uNI6jPCV7DdG8D4oExc0&usqp=CAU">
+<link rel="icon" type="image/png" sizes="32x32"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwr7MRLSv3EuQf_qVjInYGcuU_oLdmVUjKUfKrZaS7FF1glk-uNI6jPCV7DdG8D4oExc0&usqp=CAU">
+<link rel="icon" type="image/png" sizes="16x16"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwr7MRLSv3EuQf_qVjInYGcuU_oLdmVUjKUfKrZaS7FF1glk-uNI6jPCV7DdG8D4oExc0&usqp=CAU">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#232428">
+
+    <style>
+        /* Estilos para o corpo */
+        body {
+            height: 100vh; /* Altura total da tela */
+            margin: 0; /* Remove margens padrão */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Remove rolagem */
+            position: relative; /* Para posicionar o cursor animado */
+            cursor: url(http://www.rw-designer.com/cursor-view/19229.png), url(http://www.rw-designer.com/cursor-view/19229.png), auto !important;
+        }
+
+        /* Estilos para a sobreposição */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Fundo preto com transparência moderada */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1s ease-in; /* Efeito de entrada */
+            z-index: 1000; /* Z-index alto para ficar acima de outros elementos */
+        }
+
+        /* Efeito de desvanecimento */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 1s ease-out;
+        }
+
+        /* Estilos para a mensagem */
+        .message {
+            font-size: 1.5em; /* Tamanho da fonte */
+            color: white; /* Cor do texto */
+            text-align: center; /* Centraliza o texto */
+            margin-bottom: 20px; /* Espaçamento abaixo da mensagem */
+        }
+
+        /* Animação de entrada */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="overlay">
+        <div class="message">Bem-vindo! Clique em qualquer lugar.</div>
+    </div>
+
+    <audio id="background-music" src="music.mp3" preload="auto" loop></audio>
+
+    <script>
+        // JavaScript para gerenciar o evento de clique na sobreposição
+        const overlay = document.getElementById('overlay');
+        const audio = document.getElementById('background-music');
+
+        // Tocar a música ao clicar na sobreposição
+        overlay.addEventListener('click', function () {
+            audio.play().catch(error => {
+                console.error("Erro ao tocar a música:", error);
+            });
+
+            overlay.classList.add('fade-out');
+
+            // Remover a sobreposição do DOM após a animação
+            setTimeout(() => {
+                overlay.remove();
+            }, 1000); // Corresponde à duração da animação
+        });
+    </script>
+
+</body>
+</html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v3.1.2">
+    <meta property="og:site_name" content="Profile card">
+    <meta property="og:title" content="TheKermitPlayzzh">
+    <meta name="theme-color" content="#2B2D31">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwr7MRLSv3EuQf_qVjInYGcuU_oLdmVUjKUfKrZaS7FF1glk-uNI6jPCV7DdG8D4oExc0&usqp=CAU">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwr7MRLSv3EuQf_qVjInYGcuU_oLdmVUjKUfKrZaS7FF1glk-uNI6jPCV7DdG8D4oExc0&usqp=CAU">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwr7MRLSv3EuQf_qVjInYGcuU_oLdmVUjKUfKrZaS7FF1glk-uNI6jPCV7DdG8D4oExc0&usqp=CAU">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#232428">
+    <link rel="shortcut icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwr7MRLSv3EuQf_qVjInYGcuU_oLdmVUjKUfKrZaS7FF1glk-uNI6jPCV7DdG8D4oExc0&usqp=CAU">
+    <meta name="msapplication-TileColor" content="#232428">
+    <meta name="msapplication-config" content="favicon/browserconfig.xml">
+    <meta name="theme-color" content="#232428">
+    <title>Bem vindo ao meu Perfil</title>
+    <link rel="stylesheet" href="css/index.4ba693b3.css" />
+</head>
+
+<body>
+    <div class="flex flex card" data-astro-cid-5dd63b5n data-astro-cid-g3jj5irr style="--gap: 0rem;">
+        <div class="top-section" data-astro-cid-qlfjksao>
+            <header style="background-color: #35393d; width: 100%; height: 300px; position: relative; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);">
+                <img src="https://cdn.pfps.gg/banners/1493-drive.gif" 
+                     alt="Banner Image" 
+                     style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; opacity: 0.5;">
+                <div style="position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+                </div>
+            </header>
+            <div class="relative stick" data-astro-cid-dtruheb4 data-astro-cid-il4yi767><img
+                    src="https://cdn.discordapp.com/attachments/1282771930436468831/1300183725711032450/ef8f8041db165f96494474132976b20b.jpg?ex=671fe9f4&is=671e9874&hm=4e0fe09b7292db6cd8cdafd401707db8e43bc2cbda274acfb75e722566cc2a1c&"
+                    alt="Avatar" data-astro-cid-dtruheb4 data-astro-cid-iusywdof class="avatar levitate" width="138"
+                    height="138" loading="lazy" decoding="async">
+                <div class="flex flex status levitate" data-astro-cid-dtruheb4 data-astro-cid-g3jj5irr
+                    style="--justify: flex-end;--align: flex-end;--gap: 0rem;">
+                    <div class="tooltip-wrapper" data-astro-cid-dtruheb4 data-astro-cid-22g2kzde
+                        data-astro-cid-m2p5xhda>
+                        <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                            <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>Ausente</div>
+                            <div class="arrow" data-astro-cid-m2p5xhda></div>
+                        </div><img src="https://cdn3.emoji.gg/emojis/4572-discord-idle.png" alt="ausente" class="status" data-astro-cid-22g2kzde>
+                    </div>
+                </div>
+                <div class="badge-wrapper badges" data-astro-cid-dtruheb4 data-astro-cid-p646my2q>
+                    <div class="tooltip-wrapper" data-astro-cid-35zd7xm4 data-astro-cid-m2p5xhda>
+                        <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                            <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>HypeSquad Balance</div>
+                            <div class="arrow" data-astro-cid-m2p5xhda></div>
+                        </div><img src="https://cdn.discordapp.com/badge-icons/3aa41de486fa12454c3761e8e223442e.png"
+                            class="badge" data-astro-cid-35zd7xm4>
+                    </div>
+                    <div class="tooltip-wrapper" data-astro-cid-35zd7xm4 data-astro-cid-m2p5xhda>
+                        <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                            <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>Assinante desde 5 de Mai. de
+                                2024</div>
+                            <div class="arrow" data-astro-cid-m2p5xhda></div>
+                        </div><img src="https://cdn.discordapp.com/badge-icons/2ba85e8026a8614b640c2837bcdfe21b.png"
+                            class="badge" data-astro-cid-35zd7xm4>
+                    </div>
+                    <div class="tooltip-wrapper" data-astro-cid-35zd7xm4 data-astro-cid-m2p5xhda>
+                        <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                            <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>Impulsionando o servidor desde 5
+                                de Mai. de 2024
+                            </div>
+                            <div class="arrow" data-astro-cid-m2p5xhda></div>
+                        </div><img src="https://cdn.discordapp.com/badge-icons/51040c70d4f20a921ad6674ff86fc95c.png"
+                            class="badge" data-astro-cid-35zd7xm4>
+                    </div>
+                </div>
+            </div>
+            <div class="space" data-astro-cid-5xrsoxpc style="--space: 4.75rem;"></div>
+        </div>
+        <div class="card" data-astro-cid-hsvmxaxi>
+            <div class="info" data-astro-cid-pudikqxy>
+                <div class="nickname" data-astro-cid-pudikqxy>
+                    TheKermitPlayzzh
+                    <button class="add-discord-button" onclick="addDiscord()">Add</button>
+                </div>
+                
+                <script>
+                function addDiscord() {
+                    window.open("https://discord.com/users/1271017558824456203", "_blank");
+                }
+                </script>
+                
+                <style>
+                .nickname {
+                    display: inline-flex;
+                    align-items: center;
+                }
+                
+                .add-discord-button {
+                    margin-left: 8px;
+                    padding: 3px 8px;
+                    background-color: #5b6eae;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 12px;
+                    font-weight: bold;
+                    transition: background-color 0.3s;
+                }
+                
+                .add-discord-button:hover {
+                    background-color: #7289da;
+                }
+                </style>
+                
+                <div class="username" data-astro-cid-pudikqxy>felipegravacoes_</div>
+                
+            </div>
+            <hr class="divider" data-astro-cid-vxjcj4qh style="--top: 1rem;--bottom: 0rem;">
+            <div class="scrollbar" data-astro-cid-uoigrb3u>
+                <div class="offset" data-astro-cid-uoigrb3u>
+                    <section class="section" data-astro-cid-5v3l7meg>
+                        <h4 class="label" data-astro-cid-5v3l7meg>Sobre Mim</h4>
+                        <main class="normalize"><!-- Your About Me section -->
+                            <p>👋 Olá meu nome e Felipe sou um Gravador web independente em Caucaia-CE</p>
+                            <p>Eu trabalho principalmente com <a href="#">gravações e produções
+                                    musical</a>, oferecendo serviços de gravação de músicas, além de vendas de pendrives
+                                e atualizações <br>Via e-mail. e sempre atualizando as novidades do cenário musical. <br>Minha paixão e pela tecnologia e Jogos. <br>musica e mais hobby e meu ganha pão do dia.</p>
+                        </main>
+                    </section>
+                    <section class="section" data-astro-cid-5v3l7meg>
+                        <h4 class="label" data-astro-cid-5v3l7meg>Cargos</h4>
+                        <div class="flex flex" data-astro-cid-g3jj5irr style="--wrap: wrap;--gap: 0.25rem;">
+                            <div class="flex flex role" data-astro-cid-i5isu62c data-astro-cid-g3jj5irr
+                                style="--align: center;--gap: 0rem;">
+                                <div class="color" data-astro-cid-i5isu62c style="--color: #157aff;"></div><span
+                                    data-astro-cid-i5isu62c style="--color: #006f72;">👨‍💻 Gravador Oficial</span>
+                            </div>
+                            <div class="flex flex role" data-astro-cid-i5isu62c data-astro-cid-g3jj5irr
+                                style="--align: center;--gap: 0rem;">
+                                <div class="color" data-astro-cid-i5isu62c style="--color: #ff0026;"></div><span
+                                    data-astro-cid-i5isu62c style="--color: #9b2335;">📺 Yotuber</span>
+                            </div>
+                            <div class="flex flex role" data-astro-cid-i5isu62c data-astro-cid-g3jj5irr
+                                style="--align: center;--gap: 0rem;">
+                                <div class="color" data-astro-cid-i5isu62c style="--color: #00c40a;"></div><span
+                                    data-astro-cid-i5isu62c style="--color: #c1ffc4;">💻 Editor de Musicas</span>
+                            </div>
+                            <div class="flex flex role" data-astro-cid-i5isu62c data-astro-cid-g3jj5irr
+                                style="--align: center;--gap: 0rem;">
+                                <div class="color" data-astro-cid-i5isu62c style="--color: #e9d900;"></div><span
+                                    data-astro-cid-i5isu62c style="--color: #c1ffc4;">📚 Designer (Estudando ainda)</span>
+                            </div>
+                            <div class="flex flex role" data-astro-cid-i5isu62c data-astro-cid-g3jj5irr
+                                style="--align: center;--gap: 0rem;">
+                                <div class="color" data-astro-cid-i5isu62c style="--color: #dfad0a;"></div><span
+                                    data-astro-cid-i5isu62c style="--color: #c1ffc4;">💰 Empresario</span>
+                            </div>
+                            <div class="flex flex role" data-astro-cid-i5isu62c data-astro-cid-g3jj5irr
+                                style="--align: center;--gap: 0rem;">
+                                <div class="color" data-astro-cid-i5isu62c style="--color: #ffffff;"></div><span
+                                    data-astro-cid-i5isu62c style="--color: #c1ffc4;">🎮 Gamer</span>
+                            </div>
+                            <div class="flex flex role" data-astro-cid-i5isu62c data-astro-cid-g3jj5irr
+                                style="--align: center;--gap: 0rem;">
+                                <div class="color" data-astro-cid-i5isu62c style="--color: #720000;"></div><span
+                                    data-astro-cid-i5isu62c style="--color: #c1ffc4;">🔋 Desenvolvedor (quem sabe um dia)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </section>
+                    <hr class="divider" data-astro-cid-vxjcj4qh style="--top: 0rem;--bottom: 0.75rem;">
+                    <div class="grid" data-astro-cid-s2f4mtj7>
+                        <div class="flex flex connection" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                            style="--justify: space-between;--align: center;--gap: 0rem;">
+                            <div class="flex flex" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                                style="--align: center;--gap: 0.5rem;">
+                                <div class="tooltip-wrapper" data-astro-cid-ubxoc6mx data-astro-cid-m2p5xhda>
+                                    <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                                        <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>Youtube</div>
+                                        <div class="arrow" data-astro-cid-m2p5xhda></div>
+                                    </div><img src="https://imgs.search.brave.com/QKDhjD8c54gc9BowPOgFT3gdNbnLvyMTUy9esivcX5g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZs/YXRpY29uLmNvbS81/MTIvMTM4NC8xMzg0/MDYwLnBuZw" alt="Connection - yt" width="24"
+                                        height="24" class="icon" data-astro-cid-ubxoc6mx>
+                                </div>
+                                <div class="flex flex" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                                    style="--align: center;--gap: 0.25rem;"><span class="username"
+                                        data-astro-cid-ubxoc6mx>Felipe Gravações</span>
+                                    <div class="tooltip-wrapper" data-astro-cid-z4ksy3lw data-astro-cid-m2p5xhda>
+                                        <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                                            <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>Conexão Verificada</div>
+                                            <div class="arrow" data-astro-cid-m2p5xhda></div>
+                                        </div><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="verified-icon"
+                                            data-astro-cid-z4ksy3lw>
+                                            <g clip-path="url(#clip0_84_2)" data-astro-cid-z4ksy3lw>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M16 8.00002C16 8.79002 14.72 9.38002 14.48 10.09C14.24 10.8 14.92 12.09 14.48 12.68C14.04 13.27 12.64 13.03 12.02 13.48C11.4 13.93 11.23 15.32 10.48 15.57C9.73 15.82 8.81 14.77 8.01 14.77C7.21 14.77 6.26 15.77 5.54 15.57C4.82 15.37 4.62 13.93 4 13.48C3.38 13.03 2 13.3 1.54 12.68C1.08 12.06 1.77 10.84 1.54 10.09C1.31 9.34002 0 8.79002 0 8.00002C0 7.21002 1.28 6.62002 1.52 5.91002C1.76 5.20002 1.08 3.91002 1.52 3.32002C1.96 2.73002 3.37 2.97002 4 2.52002C4.63 2.07002 4.78 0.68002 5.53 0.40002C6.28 0.12002 7.2 1.23002 8 1.23002C8.8 1.23002 9.75 0.23002 10.47 0.43002C11.19 0.63002 11.38 2.07002 12 2.52002C12.62 2.97002 14 2.70002 14.46 3.32002C14.92 3.94002 14.23 5.16002 14.46 5.91002C14.69 6.66002 16 7.21002 16 8.00002Z"
+                                                    fill="#4E5058" data-astro-cid-z4ksy3lw></path>
+                                                <path
+                                                    d="M7.4 11.5699L4 9.0199L5 7.6599L7 9.1899L10.64 4.3999L12 5.3999L7.4 11.5699Z"
+                                                    fill="white" data-astro-cid-z4ksy3lw></path>
+                                            </g>
+                                            <defs data-astro-cid-z4ksy3lw>
+                                                <clipPath id="clip0_84_2" data-astro-cid-z4ksy3lw>
+                                                    <rect width="16" height="16" fill="white" data-astro-cid-z4ksy3lw>
+                                                    </rect>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div><a class="link" href="https://www.youtube.com/@felipegravacoesoficial" data-astro-cid-z6pruqnn><svg
+                                    aria-hidden="true" role="img" viewBox="0 0 24 24" data-astro-cid-z6pruqnn>
+                                    <polygon fill="currentColor" fill-rule="nonzero"
+                                        points="13 20 11 20 11 8 5.5 13.5 4.08 12.08 12 4.16 19.92 12.08 18.5 13.5 13 8"
+                                        data-astro-cid-z6pruqnn></polygon>
+                                </svg></a>
+                        </div>
+                        <div class="flex flex connection" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                            style="--justify: space-between;--align: center;--gap: 0rem;">
+                            <div class="flex flex" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                                style="--align: center;--gap: 0.5rem;">
+                                <div class="tooltip-wrapper" data-astro-cid-ubxoc6mx data-astro-cid-m2p5xhda>
+                                    <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                                        <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>Instagram</div>
+                                        <div class="arrow" data-astro-cid-m2p5xhda></div>
+                                    </div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="Connection - insta" width="24"
+                                        height="24" class="icon" data-astro-cid-ubxoc6mx>
+                                </div>
+                                <div class="flex flex" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                                    style="--align: center;--gap: 0.25rem;"><span class="username"
+                                        data-astro-cid-ubxoc6mx>@felipegravacoes_   </span>
+                                    <div class="tooltip-wrapper" data-astro-cid-z4ksy3lw data-astro-cid-m2p5xhda>
+                                        <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                                            <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>Conexão Verificada</div>
+                                            <div class="arrow" data-astro-cid-m2p5xhda></div>
+                                        </div><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="verified-icon"
+                                            data-astro-cid-z4ksy3lw>
+                                            <g clip-path="url(#clip0_84_2)" data-astro-cid-z4ksy3lw>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M16 8.00002C16 8.79002 14.72 9.38002 14.48 10.09C14.24 10.8 14.92 12.09 14.48 12.68C14.04 13.27 12.64 13.03 12.02 13.48C11.4 13.93 11.23 15.32 10.48 15.57C9.73 15.82 8.81 14.77 8.01 14.77C7.21 14.77 6.26 15.77 5.54 15.57C4.82 15.37 4.62 13.93 4 13.48C3.38 13.03 2 13.3 1.54 12.68C1.08 12.06 1.77 10.84 1.54 10.09C1.31 9.34002 0 8.79002 0 8.00002C0 7.21002 1.28 6.62002 1.52 5.91002C1.76 5.20002 1.08 3.91002 1.52 3.32002C1.96 2.73002 3.37 2.97002 4 2.52002C4.63 2.07002 4.78 0.68002 5.53 0.40002C6.28 0.12002 7.2 1.23002 8 1.23002C8.8 1.23002 9.75 0.23002 10.47 0.43002C11.19 0.63002 11.38 2.07002 12 2.52002C12.62 2.97002 14 2.70002 14.46 3.32002C14.92 3.94002 14.23 5.16002 14.46 5.91002C14.69 6.66002 16 7.21002 16 8.00002Z"
+                                                    fill="#4E5058" data-astro-cid-z4ksy3lw></path>
+                                                <path
+                                                    d="M7.4 11.5699L4 9.0199L5 7.6599L7 9.1899L10.64 4.3999L12 5.3999L7.4 11.5699Z"
+                                                    fill="white" data-astro-cid-z4ksy3lw></path>
+                                            </g>
+                                            <defs data-astro-cid-z4ksy3lw>
+                                                <clipPath id="clip0_84_2" data-astro-cid-z4ksy3lw>
+                                                    <rect width="16" height="16" fill="white" data-astro-cid-z4ksy3lw>
+                                                    </rect>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div><a class="link" href="https://www.instagram.com/felipegravacoes_" data-astro-cid-z6pruqnn><svg
+                                    aria-hidden="true" role="img" viewBox="0 0 24 24" data-astro-cid-z6pruqnn>
+                                    <polygon fill="currentColor" fill-rule="nonzero"
+                                        points="13 20 11 20 11 8 5.5 13.5 4.08 12.08 12 4.16 19.92 12.08 18.5 13.5 13 8"
+                                        data-astro-cid-z6pruqnn></polygon>
+                                </svg></a>
+                        </div>
+                        <div class="flex flex connection" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                            style="--justify: space-between;--align: center;--gap: 0rem;">
+                            <div class="flex flex" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                                style="--align: center;--gap: 0.5rem;">
+                                <div class="tooltip-wrapper" data-astro-cid-ubxoc6mx data-astro-cid-m2p5xhda>
+                                    <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                                        <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>Spotify</div>
+                                        <div class="arrow" data-astro-cid-m2p5xhda></div>
+                                    </div><img src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png" alt="Connection - spotify" width="24"
+                                        height="24" class="icon" data-astro-cid-ubxoc6mx>
+                                </div>
+                                <div class="flex flex" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                                    style="--align: center;--gap: 0.25rem;"><span class="username"
+                                        data-astro-cid-ubxoc6mx>TheKermitPlayzzh</span>
+                                    <div class="tooltip-wrapper" data-astro-cid-z4ksy3lw data-astro-cid-m2p5xhda>
+                                        <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                                            <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>Conexão Verificada</div>
+                                            <div class="arrow" data-astro-cid-m2p5xhda></div>
+                                        </div><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="verified-icon"
+                                            data-astro-cid-z4ksy3lw>
+                                            <g clip-path="url(#clip0_84_2)" data-astro-cid-z4ksy3lw>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M16 8.00002C16 8.79002 14.72 9.38002 14.48 10.09C14.24 10.8 14.92 12.09 14.48 12.68C14.04 13.27 12.64 13.03 12.02 13.48C11.4 13.93 11.23 15.32 10.48 15.57C9.73 15.82 8.81 14.77 8.01 14.77C7.21 14.77 6.26 15.77 5.54 15.57C4.82 15.37 4.62 13.93 4 13.48C3.38 13.03 2 13.3 1.54 12.68C1.08 12.06 1.77 10.84 1.54 10.09C1.31 9.34002 0 8.79002 0 8.00002C0 7.21002 1.28 6.62002 1.52 5.91002C1.76 5.20002 1.08 3.91002 1.52 3.32002C1.96 2.73002 3.37 2.97002 4 2.52002C4.63 2.07002 4.78 0.68002 5.53 0.40002C6.28 0.12002 7.2 1.23002 8 1.23002C8.8 1.23002 9.75 0.23002 10.47 0.43002C11.19 0.63002 11.38 2.07002 12 2.52002C12.62 2.97002 14 2.70002 14.46 3.32002C14.92 3.94002 14.23 5.16002 14.46 5.91002C14.69 6.66002 16 7.21002 16 8.00002Z"
+                                                    fill="#4E5058" data-astro-cid-z4ksy3lw></path>
+                                                <path
+                                                    d="M7.4 11.5699L4 9.0199L5 7.6599L7 9.1899L10.64 4.3999L12 5.3999L7.4 11.5699Z"
+                                                    fill="white" data-astro-cid-z4ksy3lw></path>
+                                            </g>
+                                            <defs data-astro-cid-z4ksy3lw>
+                                                <clipPath id="clip0_84_2" data-astro-cid-z4ksy3lw>
+                                                    <rect width="16" height="16" fill="white" data-astro-cid-z4ksy3lw>
+                                                    </rect>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div><a class="link" href="https://open.spotify.com/user/qzvkioir1rboe390cngafj94x"
+                                data-astro-cid-z6pruqnn><svg aria-hidden="true" role="img" viewBox="0 0 24 24"
+                                    data-astro-cid-z6pruqnn>
+                                    <polygon fill="currentColor" fill-rule="nonzero"
+                                        points="13 20 11 20 11 8 5.5 13.5 4.08 12.08 12 4.16 19.92 12.08 18.5 13.5 13 8"
+                                        data-astro-cid-z6pruqnn></polygon>
+                                </svg></a>
+                        </div>
+                        <div class="flex flex connection" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                            style="--justify: space-between;--align: center;--gap: 0rem;">
+                            <div class="flex flex" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                                style="--align: center;--gap: 0.5rem;">
+                                <div class="tooltip-wrapper" data-astro-cid-ubxoc6mx data-astro-cid-m2p5xhda>
+                                    <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                                        <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>Xbox</div>
+                                        <div class="arrow" data-astro-cid-m2p5xhda></div>
+                                    </div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWy9cAEMrOi4uC0rQ36O5gSygDevzcB5HBHw&s" alt="Connection - xbox" width="24"
+                                        height="24" class="icon" data-astro-cid-ubxoc6mx>
+                                </div>
+                                <div class="flex flex" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                                    style="--align: center;--gap: 0.25rem;"><span class="username"
+                                        data-astro-cid-ubxoc6mx>TheKermitPlayzzh</span>
+                                    <div class="tooltip-wrapper" data-astro-cid-z4ksy3lw data-astro-cid-m2p5xhda>
+                                        <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                                            <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>Conexão Verificada</div>
+                                            <div class="arrow" data-astro-cid-m2p5xhda></div>
+                                        </div><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="verified-icon"
+                                            data-astro-cid-z4ksy3lw>
+                                            <g clip-path="url(#clip0_84_2)" data-astro-cid-z4ksy3lw>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M16 8.00002C16 8.79002 14.72 9.38002 14.48 10.09C14.24 10.8 14.92 12.09 14.48 12.68C14.04 13.27 12.64 13.03 12.02 13.48C11.4 13.93 11.23 15.32 10.48 15.57C9.73 15.82 8.81 14.77 8.01 14.77C7.21 14.77 6.26 15.77 5.54 15.57C4.82 15.37 4.62 13.93 4 13.48C3.38 13.03 2 13.3 1.54 12.68C1.08 12.06 1.77 10.84 1.54 10.09C1.31 9.34002 0 8.79002 0 8.00002C0 7.21002 1.28 6.62002 1.52 5.91002C1.76 5.20002 1.08 3.91002 1.52 3.32002C1.96 2.73002 3.37 2.97002 4 2.52002C4.63 2.07002 4.78 0.68002 5.53 0.40002C6.28 0.12002 7.2 1.23002 8 1.23002C8.8 1.23002 9.75 0.23002 10.47 0.43002C11.19 0.63002 11.38 2.07002 12 2.52002C12.62 2.97002 14 2.70002 14.46 3.32002C14.92 3.94002 14.23 5.16002 14.46 5.91002C14.69 6.66002 16 7.21002 16 8.00002Z"
+                                                    fill="#4E5058" data-astro-cid-z4ksy3lw></path>
+                                                <path
+                                                    d="M7.4 11.5699L4 9.0199L5 7.6599L7 9.1899L10.64 4.3999L12 5.3999L7.4 11.5699Z"
+                                                    fill="white" data-astro-cid-z4ksy3lw></path>
+                                            </g>
+                                            <defs data-astro-cid-z4ksy3lw>
+                                                <clipPath id="clip0_84_2" data-astro-cid-z4ksy3lw>
+                                                    <rect width="16" height="16" fill="white" data-astro-cid-z4ksy3lw>
+                                                    </rect>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex connection" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                            style="--justify: space-between;--align: center;--gap: 0rem;">
+                            <div class="flex flex" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                                style="--align: center;--gap: 0.5rem;">
+                                <div class="tooltip-wrapper" data-astro-cid-ubxoc6mx data-astro-cid-m2p5xhda>
+                                    <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                                        <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>Twitch</div>
+                                        <div class="arrow" data-astro-cid-m2p5xhda></div>
+                                    </div><img src="https://cdn-icons-png.flaticon.com/512/5968/5968819.png" alt="Connection - Twitch" width="24"
+                                        height="24" class="icon" data-astro-cid-ubxoc6mx>
+                                </div>
+                                <div class="flex flex" data-astro-cid-ubxoc6mx data-astro-cid-g3jj5irr
+                                    style="--align: center;--gap: 0.25rem;"><span class="username"
+                                        data-astro-cid-ubxoc6mx>TheKermitPlayzzh</span>
+                                    <div class="tooltip-wrapper" data-astro-cid-z4ksy3lw data-astro-cid-m2p5xhda>
+                                        <div class="tooltip-content" data-astro-cid-m2p5xhda>
+                                            <div class="tooltip" role="tooltip" data-astro-cid-m2p5xhda>Conexão Verificada</div>
+                                            <div class="arrow" data-astro-cid-m2p5xhda></div>
+                                        </div><svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="verified-icon"
+                                            data-astro-cid-z4ksy3lw>
+                                            <g clip-path="url(#clip0_84_2)" data-astro-cid-z4ksy3lw>
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M16 8.00002C16 8.79002 14.72 9.38002 14.48 10.09C14.24 10.8 14.92 12.09 14.48 12.68C14.04 13.27 12.64 13.03 12.02 13.48C11.4 13.93 11.23 15.32 10.48 15.57C9.73 15.82 8.81 14.77 8.01 14.77C7.21 14.77 6.26 15.77 5.54 15.57C4.82 15.37 4.62 13.93 4 13.48C3.38 13.03 2 13.3 1.54 12.68C1.08 12.06 1.77 10.84 1.54 10.09C1.31 9.34002 0 8.79002 0 8.00002C0 7.21002 1.28 6.62002 1.52 5.91002C1.76 5.20002 1.08 3.91002 1.52 3.32002C1.96 2.73002 3.37 2.97002 4 2.52002C4.63 2.07002 4.78 0.68002 5.53 0.40002C6.28 0.12002 7.2 1.23002 8 1.23002C8.8 1.23002 9.75 0.23002 10.47 0.43002C11.19 0.63002 11.38 2.07002 12 2.52002C12.62 2.97002 14 2.70002 14.46 3.32002C14.92 3.94002 14.23 5.16002 14.46 5.91002C14.69 6.66002 16 7.21002 16 8.00002Z"
+                                                    fill="#4E5058" data-astro-cid-z4ksy3lw></path>
+                                                <path
+                                                    d="M7.4 11.5699L4 9.0199L5 7.6599L7 9.1899L10.64 4.3999L12 5.3999L7.4 11.5699Z"
+                                                    fill="white" data-astro-cid-z4ksy3lw></path>
+                                            </g>
+                                            <defs data-astro-cid-z4ksy3lw>
+                                                <clipPath id="clip0_84_2" data-astro-cid-z4ksy3lw>
+                                                    <rect width="16" height="16" fill="white" data-astro-cid-z4ksy3lw>
+                                                    </rect>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div><a class="link" href="https://www.twitch.tv/thekermitplayzzh" data-astro-cid-z6pruqnn><svg
+                                    aria-hidden="true" role="img" viewBox="0 0 24 24" data-astro-cid-z6pruqnn>
+                                    <polygon fill="currentColor" fill-rule="nonzero"
+                                        points="13 20 11 20 11 8 5.5 13.5 4.08 12.08 12 4.16 19.92 12.08 18.5 13.5 13 8"
+                                        data-astro-cid-z6pruqnn></polygon>
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class="background" data-astro-cid-nexh5ixr>
+        <li id="0" data-astro-cid-nexh5ixr></li>
+        <li id="1" data-astro-cid-nexh5ixr></li>
+        <li id="2" data-astro-cid-nexh5ixr></li>
+        <li id="3" data-astro-cid-nexh5ixr></li>
+        <li id="4" data-astro-cid-nexh5ixr></li>
+        <li id="5" data-astro-cid-nexh5ixr></li>
+        <li id="6" data-astro-cid-nexh5ixr></li>
+        <li id="7" data-astro-cid-nexh5ixr></li>
+    </ul>
+</body>
+
+
+</html>
